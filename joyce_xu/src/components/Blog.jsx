@@ -1,102 +1,94 @@
-import * as React from 'react';
-import CssBaseline from '@mui/material/CssBaseline';
-import Grid from '@mui/material/Grid';
-import Container from '@mui/material/Container';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import XIcon from '@mui/icons-material/X';
-import Header from './Header';
-import MainFeaturedPost from './MainFeaturedPost';
-import FeaturedPost from './FeaturedPost';
-import Main from './Main';
-import Sidebar from './Sidebar';
-import Footer from './Footer';
+import React, { useState, useEffect } from 'react';
+import {
+  AppBar, Typography, Card, CardContent, Container, Grid, Button,
+  CssBaseline, Link, Box, Paper
+} from '@mui/material';
+import thejoy from '../images/thejoy.jpg';
 
+const Blog = () => {
+  const [posts, setPosts] = useState([]);
+  const [fetchStatus, setFetchStatus] = useState('');
 
-const mainFeaturedPost = {
-  title: 'Title of a longer featured blog post',
-  description:
-    "Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents.",
-  image: 'https://source.unsplash.com/random?wallpapers',
-  imageText: 'main image description',
-  linkText: 'Continue reading…',
-};
+  useEffect(() => {
+    fetch('/api/blogposts')
+      .then((res) => {
+        if (!res.ok) {
+          console.error('Fetch error:', res);
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
+        return res.json();
+      })
+      .then((data) => {
+        setPosts(data);
+        setFetchStatus('Success! Data has been fetched.');
+      })
+      .catch((error) => {
+        console.error('Failed to fetch posts:', error);
+        setFetchStatus('Error fetching data.');
+      });
+  }, []);
 
-const featuredPosts = [
-  {
-    title: 'Featured post',
-    date: 'Nov 12',
-    description:
-      'This is a wider card with supporting text below as a natural lead-in to additional content.',
-    image: 'https://source.unsplash.com/random?wallpapers',
-    imageLabel: 'Image Text',
-  },
-  {
-    title: 'Post title',
-    date: 'Nov 11',
-    description:
-      'This is a wider card with supporting text below as a natural lead-in to additional content.',
-    image: 'https://source.unsplash.com/random?wallpapers',
-    imageLabel: 'Image Text',
-  },
-];
+  const sidebar = {
+    about: 'I’m Joyce, a software developer in Singapore. Follow me on my career transition journey.',
+  
+  };
 
-
-
-const sidebar = {
-  title: 'About',
-  description:
-    'Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.',
-  archives: [
-    { title: 'March 2020', url: '#' },
-    { title: 'February 2020', url: '#' },
-    { title: 'January 2020', url: '#' },
-    { title: 'November 1999', url: '#' },
-    { title: 'October 1999', url: '#' },
-    { title: 'September 1999', url: '#' },
-    { title: 'August 1999', url: '#' },
-    { title: 'July 1999', url: '#' },
-    { title: 'June 1999', url: '#' },
-    { title: 'May 1999', url: '#' },
-    { title: 'April 1999', url: '#' },
-  ],
-  social: [
-    { name: 'GitHub', icon: GitHubIcon },
-    { name: 'X', icon: XIcon },
-    { name: 'Facebook', icon: FacebookIcon },
-  ],
-};
-
-
-
-export default function Blog() {
   return (
     <>
       <CssBaseline />
+      <AppBar position="static" color="default" elevation={0}>
+        {/* AppBar content */}
+      </AppBar>
       <Container maxWidth="lg">
-        <Header title="Blog" />
-        <main>
-          <MainFeaturedPost post={mainFeaturedPost} />
-          <Grid container spacing={4}>
-            {featuredPosts.map((post) => (
-              <FeaturedPost key={post.title} post={post} />
-            ))}
+        <Grid container spacing={5} sx={{ mt: 3 }}>
+          <Grid item xs={12} md={8}>
+            <Typography variant="h4" gutterBottom>
+              What’s new?
+            </Typography>
+            {posts.length > 0 ? (
+              posts.map((post) => (
+                <Card key={post.id} sx={{ mb: 4 }}>
+                  <CardContent>
+                    <Typography variant="h6" gutterBottom>
+                      {post.title}
+                    </Typography>
+                    <Typography variant="subtitle1" color="textSecondary">
+                      {new Date(post.date).toLocaleDateString('en-SG', { year: 'numeric', month: 'long', day: 'numeric' })}
+                    </Typography>
+                    <Typography variant="subtitle1" paragraph>
+                      {post.summary || post.content.substring(0, 100) + '...'}
+                    </Typography>
+                    <Link href={`/blog/${post.id}`} variant="subtitle1">
+                      Read more...
+                    </Link>
+                  </CardContent>
+                </Card>
+       
+              ))
+            ) : (
+              <Typography variant="subtitle1">{fetchStatus}</Typography>
+            )}
           </Grid>
-          <Grid container spacing={5} sx={{ mt: 3 }}>
-            <Main title="From the firehose"  />
-            <Sidebar
-              title={sidebar.title}
-              description={sidebar.description}
-              archives={sidebar.archives}
-              social={sidebar.social}
-            />
+          <Grid item xs={12} md={4}>
+            <Paper elevation={0} sx={{ p: 2, bgcolor: 'white' }}>
+              <Box display="flex" justifyContent="center" my={3}>
+                <img
+                  src={thejoy}
+                  alt="Joyce"
+                  style={{ width: '100%', maxWidth: '400px', borderRadius: '0' }}
+                />
+              </Box>
+              <Typography variant="subtitle1" paragraph align="center" sx={{ mb: 2 }}>
+                {sidebar.about}
+              </Typography>
+            
+              {/* ... other sidebar content */}
+            </Paper>
           </Grid>
-        </main>
+        </Grid>
       </Container>
-      <Footer
-        title="Footer"
-        description="Something here to give the footer a purpose!"
-      />
     </>
   );
-}
+};
+
+export default Blog;

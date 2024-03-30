@@ -3,6 +3,10 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 import Home from './Home';
+import Blog from './Blog';
+import AddBlogPost from './AddBlogPost';
+import ProjectsPage from './ProjectsPage';
+import Resume from './Resume';
 import { teal } from '@mui/material/colors';
 import { createTheme, ThemeProvider } from '@mui/material';
 
@@ -27,6 +31,10 @@ function App() {
           <main>
             <Routes>
                <Route path="/" element={<Home/>} />
+               <Route path="/Blog" element={<Blog/>} />
+               <Route path="/AddBlogPost" element={<AddBlogPost/>} />
+               <Route path="/Projects" element={<ProjectsPage/>} />
+               <Route path="/Resume" element={<Resume/>} />
               
             </Routes>
             </main>
