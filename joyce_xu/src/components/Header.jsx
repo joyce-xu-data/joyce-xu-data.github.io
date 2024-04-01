@@ -93,7 +93,7 @@ function Header() {
             </IconButton>
           </Box>
 
-          <Menu
+            <Menu
             id="menu-appbar"
             anchorEl={anchorElNav}
             anchorOrigin={{
@@ -112,11 +112,18 @@ function Header() {
             }}
           >
             {pages.map((page) => (
-              <MenuItem key={page} onClick={handleCloseNavMenu}>
-                <Typography textAlign="center">{page}</Typography>
+              <MenuItem key={page} onClick={handleCloseNavMenu} sx={{ color: 'inherit', textDecoration: 'none' }}>
+                {/* Ensure the Link component wraps the Typography component */}
+                <Link 
+                  to={`/${page.toLowerCase().replace(/\s+/g, '')}`} 
+                  style={{ textDecoration: 'none', color: 'inherit', width: '100%' }}
+                >
+                  <Typography textAlign="center" sx={{ width: '100%' }}>{page}</Typography>
+                </Link>
               </MenuItem>
             ))}
           </Menu>
+
         </Toolbar>
       </Container>
     </AppBar>

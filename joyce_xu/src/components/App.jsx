@@ -7,6 +7,7 @@ import Blog from './Blog';
 import AddBlogPost from './AddBlogPost';
 import ProjectsPage from './ProjectsPage';
 import Resume from './Resume';
+import BlogPost from './BlogPost';
 import { teal } from '@mui/material/colors';
 import { createTheme, ThemeProvider } from '@mui/material';
 
@@ -35,6 +36,7 @@ function App() {
                <Route path="/AddBlogPost" element={<AddBlogPost/>} />
                <Route path="/Projects" element={<ProjectsPage/>} />
                <Route path="/Resume" element={<Resume/>} />
+               <Route path="/blog/:id" element={<BlogPost />} />
               
             </Routes>
             </main>
