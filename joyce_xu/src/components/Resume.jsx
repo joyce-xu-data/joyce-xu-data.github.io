@@ -21,7 +21,7 @@ const Resume = () => {
               descriptions: [
                 'Refactored Class Components to Functional Components for Talent Match Project',
                 'Contributed to knowledge sharing by actively sharing learnings on Company’s platforms',
-                'Updated Docker Settings for .Net2.0 to .Net6.0 for project to resolve mac compatibility ',
+                'Updated Docker Settings for .net2.0 to .net6.0 for project to resolve mac compatibility',
               ],
             },
           ],
