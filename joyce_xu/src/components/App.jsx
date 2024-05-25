@@ -32,11 +32,9 @@ function App() {
           <main>
             <Routes>
                <Route path="/" element={<Home/>} />
-               <Route path="/Blog" element={<Blog/>} />
-               <Route path="/AddBlogPost" element={<AddBlogPost/>} />
                <Route path="/Projects" element={<ProjectsPage/>} />
                <Route path="/Resume" element={<Resume/>} />
-               <Route path="/blog/:id" element={<BlogPost />} />
+  
               
             </Routes>
             </main>

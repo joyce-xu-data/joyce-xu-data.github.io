@@ -7,7 +7,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn'; // LinkedIn icon
 import MailOutlineIcon from '@mui/icons-material/MailOutline'; // Email icon
 import jxlogo from '../images/jxlogo.png';
 
-const pages = ['Projects', 'Blog', 'Resume'];
+const pages = ['Projects', 'Resume'];
 
 function Header() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
