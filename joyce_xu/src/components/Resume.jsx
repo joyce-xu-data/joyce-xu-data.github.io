@@ -4,7 +4,7 @@ import { Container, Paper, Typography, Box } from '@mui/material';
 const Resume = () => {
     const professionalExperience = [
         {
-          role: 'Intern (Remote)',
+          role: 'Intern',
           company: 'MVP Studio',
           dateRange: 'Jun 2023 - Present',
           responsibilities: [
@@ -17,9 +17,26 @@ const Resume = () => {
               ],
             },
             {
-              title: 'Competition Project',
+              title: 'Project Talent',
               descriptions: [
-                'Work with mentor to upgrade the project from .net2 to .net6',
+                'Refactored Class Components to Functional Components for Talent Match Project',
+                'Contributed to knowledge sharing by actively sharing learnings on Company’s platforms',
+                'Updated Docker Settings for .Net2.0 to .Net6.0 for project to resolve mac compatibility ',
+              ],
+            },
+          ],
+        },
+        {
+          role: 'Intern',
+          company: 'Aimy.io',
+          dateRange: 'April 2024 - Present',
+          responsibilities: [
+            {
+              title: 'Feature Enhancement',
+              descriptions: [
+                '.NET MVC, HTML/CSS, APIs, Cloud Azure, Azure DevOps, Ant Design',
+                'Enhanced form validation processes  for General Setting Feature, improving user input accuracy ',
+                'Updated code for Locations Page Feature',
               ],
             },
           ],
@@ -44,13 +61,7 @@ const Resume = () => {
               {
                 title: 'Audit Coordination',
                 descriptions: [
-                  'Diligently vetted and addressed all audit observations from internal and external auditors, ensuring transparency and robust financial practices.'
-                ],
-              },
-              {
-                title: 'Community of Practice Leadership',
-                descriptions: [
-                  'Initiated a district wide platform to exchange best practices and insights on finance, compliance, and procurement, fostering a culture of knowledge sharing and continuous improvement. Successfully coordinated and completed external audits and audits with Auditor-General’s Office with no major findings.'
+                  'improved compliance across divisions achieving a record of no major audit findings.'
                 ],
               },
               {
@@ -76,12 +87,12 @@ const Resume = () => {
         {
             role: 'Assistant Director (Engagement)',
             company: 'People’s Association',
-            dateRange: 'Oct 2019 – Mar 2021',
+            dateRange: '2019-2021',
             responsibilities: [
               {
                 title: 'Strategy Development',
                 descriptions: [
-                  'Aided in crafting and executing outreach and engagement strategies, leveraging evidence-based decision-making to ensure impactful communications with residents.'
+                  'Aided in crafting and executing outreach and engagement strategies, leveraging evidence-based decision-making to ensure impactful communications with residents. Improved volunteer engagement to hard to reach residents'
                 ],
               },
               {
@@ -101,7 +112,7 @@ const Resume = () => {
           {
             role: 'Deputy Constituency Director',
             company: 'People’s Association',
-            dateRange: 'April 2015 – Oct 2019',
+            dateRange: '2016-2019',
             responsibilities: [
               {
                 title: 'Financial Stewardship',
@@ -135,12 +146,14 @@ const Resume = () => {
         <Typography variant="h4" gutterBottom>
           Technical Expertise
         </Typography>
+        <Typography variant="subtitle1" sx={{ fontWeight: 'bold' }}>Languages and Framework</Typography>
+        <Typography variant="body1" sx={{ mb: 2 }}>JavaScript, React, .NET/MVC, HTML/CSS</Typography>
         <Typography variant="subtitle1" sx={{ fontWeight: 'bold' }}>Databases</Typography>
-        <Typography variant="body1" sx={{ mb: 2 }}>PostgreSQL</Typography>
+        <Typography variant="body1" sx={{ mb: 2 }}>PostgreSQL, MongoDB, SQLServer</Typography>
         <Typography variant="subtitle1" sx={{ fontWeight: 'bold' }}>Web Technologies</Typography>
-        <Typography variant="body1" sx={{ mb: 2 }}>Javascript, React, Node.js, Web API, RESTful, HTML/CSS, .NET/MVC</Typography>
-        <Typography variant="subtitle1" sx={{ fontWeight: 'bold' }}>Tools</Typography>
-        <Typography variant="body1">Visual Studio, Postman</Typography>
+        <Typography variant="body1" sx={{ mb: 2 }}>Node.js, RESTful APIs, Material UI, Ant Design</Typography>
+        <Typography variant="subtitle1" sx={{ fontWeight: 'bold' }}>Tools and Platforms</Typography>
+        <Typography variant="body1">Visual Studio , Postman, IntellijIdea, Docker, Microsoft Azure, Azure Devops</Typography>
       </Paper>
 
        {/* Professional Experience Section */}

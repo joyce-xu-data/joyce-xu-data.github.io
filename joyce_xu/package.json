@@ -2,8 +2,8 @@
   "name": "joyce_xu",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://joyce-xu-data.github.io",
   "type": "module",
-  
   "dependencies": {
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.0",
@@ -13,6 +13,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "cors": "^2.8.5",
+    "dompurify": "^3.0.11",
     "dotenv": "^16.4.5",
     "express": "^4.19.1",
     "express-session": "^1.18.0",
@@ -24,8 +25,10 @@
     "pg": "^8.11.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-markdown": "^9.0.1",
     "react-router-dom": "^6.22.3",
     "react-scripts": "5.0.1",
+    "remark-gfm": "^4.0.0",
     "url": "^0.11.3",
     "web-vitals": "^2.1.4"
   },
@@ -33,10 +36,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "proxy": "http://localhost:3001",
-
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -54,5 +58,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^6.1.1"
   }
 }
