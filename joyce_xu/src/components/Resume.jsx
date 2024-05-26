@@ -19,9 +19,10 @@ const Resume = () => {
             {
               title: 'Project Talent',
               descriptions: [
-                'Refactored Class Components to Functional Components for Talent Match Project',
+                'Updated parts of the project to functional components for enhanced performance and maintainability t',
                 'Contributed to knowledge sharing by actively sharing learnings on Company’s platforms',
-                'Updated Docker Settings for .Net2.0 to .Net6.0 for project to resolve mac compatibility ',
+                'Build and deploy to Azure ',
+                'Managed codebase using Git for version control, including pull, push, and commit operations.'
               ],
             },
           ],
@@ -36,7 +37,8 @@ const Resume = () => {
               descriptions: [
                 '.NET MVC, HTML/CSS, APIs, Cloud Azure, Azure DevOps, Ant Design',
                 'Enhanced form validation processes  for General Setting Feature, improving user input accuracy ',
-                'Updated code for Locations Page Feature',
+                'Updated code for Locations Page Feature for enhanced maintainability ',
+                'Worked with Azure DevOps Boards'
               ],
             },
           ],
@@ -61,7 +63,7 @@ const Resume = () => {
               {
                 title: 'Audit Coordination',
                 descriptions: [
-                  'improved compliance across divisions achieving a record of no major audit findings.'
+                  'Crafted targeted training programs based on comprehensive staff surveys that significantly improved compliance across divisions achieving a record of no major audit findings.'
                 ],
               },
               {
